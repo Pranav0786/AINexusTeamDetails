@@ -1,0 +1,35 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Node dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Testing outputs
+coverage/
+
+# Build outputs
+build/
+
+# Miscellaneous
+.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE specific files (optional, add based on your usage)
+.vscode/
+.idea/
+*.swp
+
+# Logs
+logs/
+*.log
+yarn.lock

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import dataset from './dataset';
 
 const TeamList = () => {
-  const [searchTerm, setSearchTerm] = useState(''); // State to track search input
-  const [filteredTeams, setFilteredTeams] = useState(dataset); // State for filtered list
+  const [searchTerm, setSearchTerm] = useState(''); 
+  const [filteredTeams, setFilteredTeams] = useState(dataset); 
 
   const handleSearch = (e) => {
     const value = e.target.value;

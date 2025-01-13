@@ -1,0 +1,31 @@
+Subject: Welcome to AI Nexus – Registration Confirmed
+
+Dear [Participant's Name],
+
+We are thrilled to confirm your registration for the AI Nexus event, proudly organized by the Microsoft Learn Students' Club (MLSC). This event is a platform to empower participants with AI knowledge, foster innovation, and provide hands-on experience in a collaborative and exciting environment.
+
+Your Registration ID:
+Your unique registration ID is [Registration ID]. Please keep this ID handy, as you will need it for event access and participation.
+
+Event Highlights:
+Learn and Implement Sessions:
+
+Gain in-depth insights into artificial intelligence concepts through expert-led workshops.
+Practical, hands-on coding sessions designed to turn your ideas into real-world solutions.
+Mini Hackathon – HACK AI BLITZ:
+
+Participate in a fast-paced, dynamic hackathon to tackle real-world challenges using AI.
+Team up with other participants, innovate, and compete for incredible prizes and recognition!
+Event Details:
+Date: 25th and 26 Jan
+Time: 10:00am to 6:00pm
+Venue: [Main CFF]
+Organized By: Microsoft Learn Students' Club (MLSC)
+Theme: Azure AI Services
+This is more than just an event—it's an opportunity to learn, innovate, and grow. Don’t miss your chance to connect with fellow AI enthusiasts and showcase your creativity at HACK AI BLITZ!
+
+For any queries or assistance, feel free to reach out to us at +91 92841 24132
+We look forward to welcoming you to AI Nexus and witnessing your AI journey!
+
+Best regards,
+Microsoft Learn Students' Club
