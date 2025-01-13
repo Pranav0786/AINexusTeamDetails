@@ -5,6 +5,7 @@ const TeamDetails = () => {
   const [filteredTeam, setFilteredTeam] = useState(null);
   const [searchId, setSearchId] = useState('');
   const [error, setError] = useState(null);
+  const [presentedCount, setPresentedCount] = useState(0);
 
   // Fetch all teams initially
   useEffect(() => {
@@ -14,9 +15,9 @@ const TeamDetails = () => {
         const data = await response.json();
 
         if (response.ok) {
-          setTeams(data); // Set all teams data
+          setTeams(data);
         } else {
-          setError(data.message); // Handle error
+          setError(data.message); 
         }
       } catch (err) {
         setError('Failed to fetch teams');
@@ -32,31 +33,60 @@ const TeamDetails = () => {
     setFilteredTeam(team || null);
   };
 
+  // Toggle present status of a team
+  const togglePresent = (teamId) => {
+    const updatedTeams = teams.map((team) =>
+      team.teamId === teamId
+        ? { ...team, isPresented: !team.isPresented }
+        : team
+    );
+    setTeams(updatedTeams);
+
+    // Update the presented count
+    const newPresentedCount = updatedTeams.filter((team) => team.isPresented).length;
+    setPresentedCount(newPresentedCount);
+  };
+
   if (error) {
     return <p className="text-center text-red-500">{error}</p>;
   }
 
   if (!teams.length) {
-    return <p className="text-center text-gray-500">Loading teams...</p>;
+    return (
+      <div className='flex flex-col items-center gap-5 mt-4'>
+        <p className="text-center font-bold text-gray-500">Loading teams...</p>
+        <div className='spinner'></div>
+      </div>
+    );
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto p-6">
-      {/* Search Bar */}
-      <div className="mb-6 flex justify-center items-center space-x-4">
-        <input
-          type="number"
-          placeholder="Enter Team ID"
-          value={searchId}
-          onChange={(e) => setSearchId(e.target.value)}
-          className="p-3 border border-gray-300 rounded-lg w-64 focus:ring-2 focus:ring-blue-500 transition-all"
-        />
-        <button
-          onClick={handleSearch}
-          className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
-        >
-          Search Team
-        </button>
+    <div className="w-11/12 mx-auto p-6">
+      {/* Search Bar and Count Buttons */}
+      <div className="mb-6 flex justify-between items-center">
+        <div className="flex justify-center items-center space-x-4">
+          <input
+            type="number"
+            placeholder="Enter Team ID"
+            value={searchId}
+            onChange={(e) => setSearchId(e.target.value)}
+            className="p-3 border border-gray-300 rounded-lg w-64 focus:ring-2 focus:ring-blue-500 transition-all"
+          />
+          <button
+            onClick={handleSearch}
+            className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
+          >
+            Search Team
+          </button>
+        </div>
+        <div className="flex space-x-4">
+          <div className="bg-gray-200 p-3 rounded-lg">
+            <p>Total Teams: {teams.length}</p>
+          </div>
+          <div className="bg-blue-500 p-3 rounded-lg text-white">
+            <p>Presented: {presentedCount}</p>
+          </div>
+        </div>
       </div>
 
       {/* Display filtered team or all teams */}
@@ -88,10 +118,17 @@ const TeamDetails = () => {
         </div>
       ) : (
         <div>
-          <h3 className="text-xl font-semibold">All Teams:</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teams.map((team, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md space-y-4">
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md space-y-4 relative">
+                <button
+                  onClick={() => togglePresent(team.teamId)}
+                  className={`absolute top-4 right-4 p-2 rounded-full ${
+                    team.isPresented ? 'bg-green-500' : 'bg-gray-400'
+                  } text-white`}
+                >
+                  {team.isPresented ? 'Unmark' : 'Present'}
+                </button>
                 <h4 className="text-xl font-bold">Team ID: {team.teamId}</h4>
                 <p className="text-lg">Track: {team.track}</p>
                 <h5 className="text-lg font-semibold">Users:</h5>

@@ -7,8 +7,8 @@ const App = () => {
   return (
     <div>
         {/* <ImageDisplay /> */}
-        <TeamList />
-        <TeamDetails teamId={2} />
+        {/* <TeamList /> */}
+        <TeamDetails />
     </div>
   );
 };
