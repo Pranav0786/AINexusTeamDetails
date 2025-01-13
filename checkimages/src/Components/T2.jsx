@@ -12,8 +12,8 @@ const TeamDetails = () => {
   useEffect(() => {
     const fetchTeamsAndAttendance = async () => {
       try {
-        const teamResponse = await fetch('http://localhost:5000/api/v1/teams');
-        const attendanceResponse = await fetch('http://localhost:5000/api/v1/attendance');
+        const teamResponse = await fetch('https://ainexusteamdetails.onrender.com/api/v1/teams');
+        const attendanceResponse = await fetch('https://ainexusteamdetails.onrender.com/api/v1/attendance');
 
         const teamData = await teamResponse.json();
         const attendanceData = await attendanceResponse.json();
@@ -51,7 +51,7 @@ const TeamDetails = () => {
     const isPresented = !attendance[teamId];
 
     try {
-      const response = await fetch(`http://localhost:5000/api/v1/attendance/${teamId}`, {
+      const response = await fetch(`https://ainexusteamdetails.onrender.com/api/v1/attendance/${teamId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ isPresented }),

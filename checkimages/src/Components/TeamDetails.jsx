@@ -12,7 +12,7 @@ const TeamDetails = () => {
     const fetchTeams = async () => {
       try {
         // const response = await fetch('https://ai-nexus-997m.onrender.com/api/v1/teams');
-        const response = await fetch('http://localhost:5000/api/v1/teams');
+        const response = await fetch('https://ainexusteamdetails.onrender.com/api/v1/teams');
         const data = await response.json();
 
         if (response.ok) {
