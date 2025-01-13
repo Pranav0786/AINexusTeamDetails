@@ -89,31 +89,32 @@ const TeamDetails = () => {
     <div className="w-11/12 mx-auto p-6">
       <h1 className="text-4xl font-extrabold text-center mb-8">Attendance Sheet</h1>
 
-      <div className="mb-6 flex justify-between items-center">
-        <div className="flex justify-center items-center space-x-4">
+      <div className="mb-6 flex flex-wrap justify-between items-center gap-4">
+        <div className="flex flex-wrap justify-center items-center gap-4">
           <input
             type="number"
             placeholder="Enter Team ID"
             value={searchId}
             onChange={(e) => setSearchId(e.target.value)}
-            className="p-3 border border-gray-300 rounded-lg w-64 focus:ring-2 focus:ring-blue-500 transition-all"
+            className="p-3 border border-gray-300 rounded-lg w-full sm:w-64 focus:ring-2 focus:ring-blue-500 transition-all"
           />
           <button
             onClick={handleSearch}
-            className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all"
+            className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all w-full sm:w-auto"
           >
             Search Team
           </button>
         </div>
-        <div className="flex space-x-4">
-          <div className="bg-gray-200 p-3 rounded-lg">
+        <div className="flex flex-wrap justify-center gap-4">
+          <div className="bg-gray-200 p-3 rounded-lg w-full sm:w-auto">
             <p>Total Teams: {teams.length}</p>
           </div>
-          <div className="bg-blue-500 p-3 rounded-lg text-white">
+          <div className="bg-blue-500 p-3 rounded-lg text-white w-full sm:w-auto">
             <p>Presented: {presentedCount}</p>
           </div>
         </div>
       </div>
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredTeams.map((team) => (
